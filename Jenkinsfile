@@ -2,12 +2,6 @@ pipeline {
     agent any
 
 
-
-    tools {
-     
-        dockerTool 'docker-latest'
-    }
-
     environment {
      
         AWS_ECR_REGION = 'us-east-1'
