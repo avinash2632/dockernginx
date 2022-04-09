@@ -38,7 +38,7 @@ pipeline {
         script {
           def login = ecrLogin()
           sh('#!/bin/sh -e\n' + "${login}") // hide logging
-          docker.image("public.ecr.aws/f4g4u9g1/nginxalphine:latest:5").push()
+          docker.image("nginxdeploy:3").push()
         }
       }
     
