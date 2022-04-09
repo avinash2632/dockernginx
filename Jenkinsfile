@@ -38,6 +38,7 @@ pipeline {
         script {
           def login = ecrLogin()
           sh('#!/bin/sh -e\n' + "${login}") // hide logging
+           sh docker tag nginximage nginxdeploy:3
           docker.image("nginxdeploy:3").push()
         }
       }
