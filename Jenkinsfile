@@ -46,7 +46,7 @@ pipeline {
   
 }
         
-        }
+        
 
         stage('Deploy in ECS') {
         
