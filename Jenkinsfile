@@ -12,7 +12,7 @@ pipeline {
         AWS_ECS_CPU = '256'
         AWS_ECS_MEMORY = '512'
         AWS_ECS_CLUSTER = 'nginxcluster'
-        AWS_ECS_TASK_DEFINITION_PATH = 'simpletask.json'
+        AWS_ECS_TASK_DEFINITION_PATH = 'taskdefinition.json'
     }
 
     stages {
