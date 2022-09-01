@@ -2,7 +2,7 @@
    "containerDefinitions": [ 
       { 
          "essential": true,
-         "image": "httpd:2.4",
+         "image": "nginx:3",
          "logConfiguration": { 
             "logDriver": "awslogs",
             "options": { 
