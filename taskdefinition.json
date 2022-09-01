@@ -2,7 +2,7 @@
    "containerDefinitions": [ 
       { 
          "essential": true,
-         "image": "nginxdeploy:3",
+         "image": "891437285629.dkr.ecr.us-east-1.amazonaws.com/jimbu:latest",
          "logConfiguration": { 
             "logDriver": "awslogs",
             "options": { 
