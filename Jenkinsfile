@@ -37,7 +37,7 @@ pipeline {
       withAWS(region: "${AWS_ECR_REGION}", credentials: 'personal-aws-ecr') {
         script {
          
-          sh docker tag nginxdeploy:3
+          sh docker tag nginxdeploy:3 891437285629.dkr.ecr.us-east-1.amazonaws.com/nginxdeploy:3
           sh docker push 891437285629.dkr.ecr.us-east-1.amazonaws.com/nginxdeploy:3
         }
       }
