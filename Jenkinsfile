@@ -36,10 +36,9 @@ pipeline {
 
       withAWS(region: "${AWS_ECR_REGION}", credentials: 'personal-aws-ecr') {
         script {
-          def login = ecrLogin()
-          sh('#!/bin/sh -e\n' + "${login}") // hide logging
+         
           sh docker tag nginxdeploy:3
-          docker.image("nginxdeploy:3").push()
+          sh docker push 891437285629.dkr.ecr.us-east-1.amazonaws.com/nginxdeploy:3
         }
       }
     
