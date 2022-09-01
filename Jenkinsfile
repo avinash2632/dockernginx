@@ -54,10 +54,13 @@ pipeline {
          steps {
     
       script {
-        updateContainerDefinitionJsonWithImageVersion()
-        sh("/usr/local/bin/aws ecs register-task-definition --region ${AWS_ECR_REGION} --family ${AWS_ECS_TASK_DEFINITION} --container-definitions file://${AWS_ECS_TASK_DEFINITION_PATH}")
-        def taskRevision = sh(script: "/usr/local/bin/aws ecs describe-task-definition --task-definition ${AWS_ECS_TASK_DEFINITION} | egrep \"revision\" | tr \"/\" \" \" | awk '{print \$2}' | sed 's/\"\$//'", returnStdout: true)
-        sh("/usr/local/bin/aws ecs update-service --cluster ${AWS_ECS_CLUSTER} --service ${AWS_ECS_SERVICE} --task-definition ${AWS_ECS_TASK_DEFINITION}:${taskRevision}")
+        
+         sh  "aws ecs register-task-definition --cli-input-json file://taskdefinition.json"
+         sh "aws ecs create-service --cluster nginxcluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-01282c5ccaf348f62],securityGroups=[sg-0f8886ca33d837065]}"
+          
+        
+         
+              
       }
     }
   }
