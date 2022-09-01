@@ -13,6 +13,8 @@ pipeline {
         AWS_ECS_MEMORY = '512'
         AWS_ECS_CLUSTER = 'nginxcluster'
         AWS_ECS_TASK_DEFINITION_PATH = 'taskdefinition.json'
+        IMAGE_REPO = 'nginxdeploy'
+        IMAGE_TAG = '3'
     }
 
     stages {
@@ -37,8 +39,8 @@ pipeline {
       withAWS(region: "${AWS_ECR_REGION}", credentials: 'personal-aws-ecr') {
         script {
          
-            sh docker tag nginxdeploy:3 891437285629.dkr.ecr.{AWS_ECR_REGION}.amazonaws.com/nginxdeploy:3
-            sh docker push 891437285629.dkr.ecr.{AWS_ECR_REGION}.amazonaws.com/nginxdeploy:3
+            sh docker tag nginxdeploy:3 891437285629.dkr.ecr.${AWS_ECR_REGION}.amazonaws.com/${IMAGE_REPO}:${IMAGE_TAG}
+            sh docker push 891437285629.dkr.ecr.${AWS_ECR_REGION}.amazonaws.com/${IMAGE_REPO}:${IMAGE_TAG}
         }
       }
     
