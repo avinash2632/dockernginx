@@ -56,10 +56,9 @@ pipeline {
       script {
         
          sh  "aws ecs register-task-definition --cli-input-json file://taskdefinition.json"
-         sh "aws ecs create-service --cluster nginxcluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-01282c5ccaf348f62],securityGroups=[sg-0f8886ca33d837065]}"
+         sh "aws ecs create-service --cluster nginxcluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-01282c5ccaf348f62],securityGroups=[sg-0f8886ca33d837065]}""
           
-        
-         
+            
               
       }
     }
