@@ -59,7 +59,8 @@ pipeline {
         
          sh  "aws ecs register-task-definition --cli-input-json file://taskdefinition.json"
          sh "aws ecs create-service --cluster nginxcluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE""
-          
+       
+        
             
               
       }
