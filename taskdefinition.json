@@ -24,13 +24,10 @@
       }
    ],
    "cpu": "256",
-   "executionRoleArn": "arn:aws:iam::012345678910:role/ecsTaskExecutionRole",
+   "executionRoleArn": "arn:aws:iam::891437285629:role/ecsTaskExecutionRole",
    "family": "fargate-task",
    "memory": "512",
    "networkMode": "awsvpc",
-   "runtimePlatform": {
-        "operatingSystemFamily": "LINUX"
-    },
    "requiresCompatibilities": [ 
        "FARGATE" 
     ]
